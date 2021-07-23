@@ -19,9 +19,9 @@ app.use(express.static(path.join(__dirname + '/')));
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
-const config = require('config'); 
+//const config = require('config'); 
 
-const secret = config.get('secret'); 
+const secret = process.env.JWTSecret; 
 
 const routeObj = {
   '/signIn': '/views/signIn.html',
