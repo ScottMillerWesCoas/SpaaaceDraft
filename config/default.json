@@ -1,0 +1,4 @@
+{
+	"mongoURI": process.env.mongoURI, 
+	"secret": process.env.JWTSecret
+}
