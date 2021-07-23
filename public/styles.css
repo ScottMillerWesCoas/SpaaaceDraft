@@ -1,0 +1,486 @@
+/* body, background, and major wrappers */
+body.starfield {
+  color: #E2F4DF;
+  background-image:url('/assets/starfield2.jpg');
+  line-height: 1.2;
+  margin: 0px;
+  overflow: hidden;
+  font-family:  'Roboto Condensed', sans-serif;
+  /*text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;*/
+}
+
+
+.input-field>label {
+  margin-left: 4.2rem !important; 
+}
+
+#bg {
+  position: relative;
+}
+
+#containerG {
+  position: absolute;
+  top: 5%;
+  left: 0px;
+  z-index: -1;
+}
+
+/* HOME PAGE */
+#banner {
+  letter-spacing: 5px;
+  font-size: 310%;
+  margin-top: 1%;
+  text-align: center;
+  color: #FFF;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+/* choose game buttons */
+#twoPlayer {
+  text-align: left;
+}
+
+#joinGame {
+  opacity: 0;
+  text-align: center;
+}
+
+.newGame {
+  cursor: pointer;
+  color: white;
+  outline: none;
+  background: rgba(0,0,128, .1);
+  border: none;
+  margin-top: -10px;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+/* CHOOSE A ROOM */
+#searchBar {
+  text-align: center;
+}
+
+#room {
+  margin: auto;
+  color: #000;
+  text-align: center;
+  width: 400px;
+  height: 50px;
+  font-size: 40px;
+}
+
+#roomName {
+  font-size: 226%;
+  margin-top: 1%;
+  text-align: center;
+  color: #FFF;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+.top-buffer {
+  margin-top: 2%;
+}
+
+.top-bigSpace {
+  margin-top: 10%;
+}
+
+.underBanner-buffer {
+  margin-top: 1%;
+}
+
+#onePlayerCol{
+  text-align: right;
+}
+
+/* LOADING SCREEN */
+.onepix-imgloader {
+  display: inline-block;
+  position: absolute;
+  top: 40%;
+  right: 40%;
+  z-index: 5;
+  text-align: center;
+}
+
+.onepix-imgloader p {
+  font-size: 40px;
+}
+
+.loading-container > *:not(.onepix-imgloader) {
+  opacity:0;
+  height: 100%;
+}
+
+.loading-container {
+  position: absolute;
+  background: #dfdfdf;
+  height: 100%;
+  width: 100%;
+  z-index: 5;
+  background-image:url('/assets/starfield2.jpg');
+  transition: background 1s ease-out;
+}
+
+#canvasloader-container {
+  position: absolute;
+  width: 30%;
+  height: 23%;
+  left: 50%;
+  margin-left: -15%;
+  top: 50%;
+  margin-top: -8%;
+}
+
+/* MAIN GAME PAGE */
+/* instructions for gameplay */
+#how-to-play {
+  position: absolute;
+  bottom: 1%;
+  right: 1%;
+  opacity: 0.8;
+  text-align: center;
+}
+
+#how-to-play img {
+  display: block;
+  width: 60px;
+  cursor: pointer;
+  margin: 0 auto;
+}
+
+.modal-body, .modal-title, .modal-content {
+  color: #000;
+  text-shadow: none;
+  font-family: sans-serif;
+}
+
+.modal-header, h4, .close {
+  background-color: #5cb85c;
+  color: white !important;
+  text-align: center;
+  font-size: 30px;
+}
+
+.modal-backdrop {
+  z-index: 0;
+}
+
+/* left side game data */
+#infoPanel {
+  position: absolute;
+  top: 1%;
+  left: 1%;
+}
+
+/* spacebar velocity and velocity-num divs */
+#velocity {
+  position: absolute;
+  top: 80%;
+  left: 60%;
+  width: 80px;
+  text-align: center;
+  background-color: rgba(0,0,0, .7);
+  border-radius: 10px;
+  display: none;
+}
+
+#velocity-num {
+  display: inline-block;
+  font-size: 25px;
+  margin: 4px 0;
+}
+
+/* audio */
+#calling {
+  background-image: url("/assets/walkieTalkie.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 80px;
+  height: 260px;
+  position: absolute;
+  bottom: -5%;
+  left: 20px;
+}
+
+#callContainer {
+  width: 45px;
+  margin-top: 140px;
+  margin-left: 17px;
+}
+
+#unmuteButton {
+  background-color: #4CAF50; /* Green */
+  color: white;
+  margin-bottom: 5px;
+  width: 100%;
+  height: 26px;
+  border-color: #8594AE;
+}
+
+#muteButton {
+  background-color: #f44336; /* Red */
+  color: white;
+  width: 100%;
+  height: 26px;
+  border-color: #8594AE;
+}
+
+/* pulsing effect for info */
+.info-data {
+  font-size: 20px;
+}
+
+.info-data div:nth-child(2) {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+
+.info-data div {
+  vertical-align: middle;
+}
+
+@-webkit-keyframes pulse {
+  0% { box-shadow:0 0 8px #0BFF54, inset 0 0 8px #FFF; }
+  50% { box-shadow:0 0 16px #0BFF54, inset 0 0 14px #FFF; }
+  100% { box-shadow:0 0 8px #0BFF54, inset 0 0 8px #FFF; }
+}
+
+.glowing-circle {
+  display: inline-block;
+  width:20px;
+  height:20px;
+  border-radius:50%;
+  box-shadow: 0 0 8px #FFF, inset 0 0 8px #FFF;
+  -webkit-animation: pulse 2s linear 1s infinite;
+}
+
+/* angle input */
+.angle {
+  font-size: 20px;
+  left: 20%;
+  bottom: 7%;
+  position: absolute;
+  color: #E2F4DF;
+}
+
+.angle label {
+  margin: 7px 0;
+}
+
+.angle-arrows {
+  cursor: pointer;
+  display: block;
+  width: 25px;
+  margin-left: 115px;
+}
+
+.angle input {
+  cursor: pointer;
+  background: rgba(0,0,128, .1);
+  border: none;
+  font-size: 20px;
+  text-align: center;
+  border-radius: 50%;
+  width: 40px;
+  padding: 2px;
+  color: #E2F4DF;
+  box-shadow: 0 0 8px #FFF, inset 0 0 8px #FFF;
+  -webkit-animation: pulse 2s linear 1s infinite;
+}
+
+.angle input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+/* right side game data */
+.svg-container {
+  background: rgba(0,0,128, 0);
+  color: #FFF;
+}
+
+#line-graph {
+  opacity: 0;
+  font-family: sans-serif;
+  text-shadow: 0px 0px #FFF;
+  position: absolute;
+  right: 0px;
+  margin-top: 12%;
+  margin-right: 1.49%;
+}
+
+#pointsDivOnePlayer{
+  opacity: 0;
+  position: absolute;
+  right: 0px;
+  margin-top: 1%; /* 20px / 808px */
+  margin-right: 1.49%; /* 20px / 1440px */
+  text-align: center;
+  font-size: 200%;
+}
+
+#pointsDiv {
+  opacity: 0;
+  position: absolute;
+  right: 0px;
+  margin-top: 1%; /* 20px / 808px */
+  margin-right: 1.49%; /* 20px / 1440px */
+  text-align: left;
+  font-size: 200%;
+}
+
+#p1Points, #p2Points, #p1OnlyPoints {
+  font-weight: bolder;
+}
+
+/* signaling and turn-based popups */
+#signalingArea {
+  position: absolute;
+  left: 50%;
+  width: 25%;
+  margin-left: -12.5%;
+  margin-top: 2.48%;
+  color: #FFF;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 200%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  z-index: -1; /* so message slides behind planet */
+}
+
+/*container holding items that user does not need to see*/
+#items-to-be-hidden {
+  visibility: hidden;
+  position: absolute;
+  width: 100%;
+}
+
+/* tracking canvases */
+#trackingCanvas {
+  position: absolute;
+}
+
+.test {
+  color: #FFF;
+}
+
+/* picture taking */
+#allow-webcam {
+  left: 1%;
+}
+
+#start-scan {
+  z-index: 5; /* z-index to push in front of render canvas */
+  font-size: 130%;
+  width: 130px;
+  height: 40px;
+  margin-top: 2%;
+  background-color: rgba(0,0,128, 0.3);
+  color: #FFF;
+  border-radius: 5px;
+  box-shadow: 0 0 8px #FFF, inset 0 0 8px #FFF;
+  -webkit-animation: pulse 2s linear 1s infinite;
+}
+
+#hand-info {
+  margin-top: -20px;
+  width: 140px;
+  height: 55px;
+  font-size: 16px;
+  letter-spacing: 1px;
+  padding: 5px 10px;
+  background-color: rgba(40,40,40, 0.9);
+  border-radius: 7px;
+}
+
+#show-video {
+  opacity: 0;
+  position: absolute;
+  width: 20%;
+  margin-top: 5%;
+  margin-left: 40%;
+}
+
+#show-video p {
+  margin-top: 20px;
+  text-align: center;
+}
+
+#myVideo, #transparent-circle {
+  width: 100%;
+}
+
+/*container that holds the circle png over the video*/
+#take-snapshot {
+  opacity: 0;
+  position:absolute;
+  width: 20%;
+  margin-top: 5%;
+  margin-left: 40%;
+  border: 2px solid #FFF;
+  z-index: 5;
+}
+
+#transparent-circle {
+  opacity: 0.94;
+}
+
+/* holds instructional gif and start-tracking button */
+#tracking-container {
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+}
+
+#gif {
+  position: absolute;
+  height: 250px;
+  width: 500px;
+  margin-top: 20px;
+  left: 50%;
+  margin-left: -250px;
+  pointer-events: none;
+}
+
+#closeGif {
+  position: absolute;
+  top: 67%;
+  left: 60%;
+  font-size: 150%;
+}
+
+#start-tracking {
+  position: absolute;
+  z-index: 5; /* make button clickable above render canvas */
+  margin-top: 280px;
+  left: 50%;
+  margin-left: -75px;
+  width: 150px;
+  height: 30px;
+  background-color: rgba(0,0,128, 0.3);
+  color: #FFF;
+  border: 1px solid rgba(255,255, 255, 0.4);
+  border-radius: 5px;
+}
+
+#swipe-countdown {
+  opacity: 0;
+  position: absolute;
+  z-index: 5; /*pushing numbers in front of foreground*/
+  width: 100%;
+  text-align: center;
+}
+
+#swipe-num {
+  opacity: 0;
+  margin-top: 5%;
+  padding: 0;
+  font-size: 10rem;
+}
+
+#displayData {
+  font-size: 20px;
+}
