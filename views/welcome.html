@@ -1,0 +1,66 @@
+<html>
+  <head>
+    <title>Welcome to Spaaaace</title>
+    <!-- Link to external font library-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
+
+    <!-- Link to local css library -->
+    <link rel="stylesheet" type="text/css" href="./public/styles.css">
+
+    <!-- Link to browser favicon -->
+    <!-- <link rel="icon" sizes="32x32" type="image/png" href="../../assets/MLCTfavicon.png" /> -->
+
+     <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+
+    <!-- jQwer -->
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+
+     <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+
+    <!-- Link to javascript library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  </head>
+  <body class="starfield">
+  	<div class="container-fluid px-0" id="particles-js">
+  		<div class="row" style="position: fixed; margin-top: 40%; width: 100%; display: flex; justify-content: center; align-items: center;">
+  			<div class="col-12 text-center">
+  				<a href="galaxy" class="btn btn-success waves-light my-3">Go Foo</a>
+  				<a href="galaxy" class="btn btn-success waves-light ml-4 my-3">Sign Up</a>
+  			</div>
+  		</div>
+  	
+  		
+  	</div>
+  </body>
+  <script type="text/javascript" src="./lib/particles.min.js"></script>
+  <script type="text/javascript">
+  	particlesJS.load('particles-js', '/lib/particlesjs-config.json', function() {});
+
+    $(document).ready(()=>{
+      var urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.has('err')){
+        M.toast({
+          html: decodeURI(urlParams.get('err')),
+          classes: 'rounded red',
+          displayLength: 4500
+        });
+      } else if (urlParams.has('success')){
+        M.toast({
+          html: decodeURI(urlParams.get('success')),
+          classes: 'rounded green',
+          displayLength: 4500
+        }); 
+      }
+    })
+  </script>
+</html>
