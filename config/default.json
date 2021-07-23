@@ -1,4 +1,0 @@
-{
-	"mongoURI": "mongodb+srv://stmill03:0lu4XiKKq920MJGe@spaceproj.itk1j.mongodb.net/spaceData?retryWrites=true&w=majority", 
-	"secret": "hooray!"
-}
