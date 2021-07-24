@@ -10,7 +10,7 @@ $(document).ready(function(){
 		}); 
 		console.log(signUpObj); 
 		$.ajax({
-			url: '/signUp',  
+			url: '/user/signUp',  
 			method: "POST",
 			contentType: 'application/json',
 			data: JSON.stringify(signUpObj), 

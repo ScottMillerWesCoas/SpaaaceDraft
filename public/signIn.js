@@ -8,7 +8,7 @@ $(document).ready(function(){
 		rawSignInArr.forEach(el => signInObj[el.name] = el.value);
 
 		$.ajax({
-			url: '/signIn',  
+			url: '/user/signIn',  
 			method: "POST",
 			contentType: 'application/json',
 			data: JSON.stringify(signInObj), 
