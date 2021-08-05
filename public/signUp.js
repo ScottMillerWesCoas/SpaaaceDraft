@@ -16,6 +16,18 @@ $(document).ready(function(){
 			data: JSON.stringify(signUpObj), 
 			error: function(err){
 				console.log(err); 
+				let errStr = ""; 
+				if (err.responseJSON.hasOwnProperty('errors')){
+					
+					err.responseJSON.errors.forEach( el => {
+						if (el.msg) errStr += el.msg + '</br>'; 
+					}); 
+					M.toast({
+					  html: errStr, 
+					  classes: 'rounded red',
+					  displayLength: 4500
+					});
+				}
 			}, 
 			success: function(data){
 				console.log("success back from server"); 

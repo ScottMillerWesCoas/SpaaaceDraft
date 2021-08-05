@@ -48,9 +48,9 @@ function init() {
   camera.position.y = 100;
 
   camera.lookAt(new THREE.Vector3(0,0,0));
-   //camera stays fixed on the position occupied by the sun, can be modified with code on line 138 to follow a planet's orbit
+  //camera stays fixed on the position occupied by the sun, can be modified with code on line 138 to follow a planet's orbit
   //Camera cannot follow objects (which include planets with their own moons), hence following Mars instead of Earth.
-  //Scott thinks it's prettier, but lost in a 2-1 vote.  
+ 
 
   scene.add(theSun);
 
@@ -60,11 +60,11 @@ function init() {
   scene.add(Venus);
 
 
-  scene.add(theEarth); 
-  // scene.add(theEarthAndMoon);
-  // theEarthAndMoon.add(theEarth);
-  // theEarthAndMoon.add(cloudMesh);
-  // theEarthAndMoon.add(theMoon);
+  //scene.add(theEarth); 
+  scene.add(theEarthAndMoon);
+  theEarthAndMoon.add(theEarth);
+  //theEarthAndMoon.add(cloudMesh);
+  theEarthAndMoon.add(theMoon);
 
 
   scene.add(Mars);
@@ -136,18 +136,19 @@ function render() {
   var uranusRadians = uOrbitAngle * Math.PI/180;
   var mRadians = uOrbitAngle * Math.PI/180;
 
-  //theEarthAndMoon.position.x = Math.cos(radians) * earthOrbitRadius;
-  //theEarthAndMoon.position.z = Math.sin(radians) * earthOrbitRadius;
+  // theEarth.position.x = Math.cos(radians) * earthOrbitRadius;
+  // theEarth.position.z = Math.sin(radians) * earthOrbitRadius;
   
-  theEarth.position.x = Math.cos(radians) * earthOrbitRadius;
-  theEarth.position.z = Math.sin(radians) * earthOrbitRadius;
+  theEarthAndMoon.position.x = Math.cos(radians) * earthOrbitRadius;
+  theEarthAndMoon.position.z = Math.sin(radians) * earthOrbitRadius;
 
   Mars.position.x = Math.cos(marsRadians) * marsOrbitRadius * 1.25;
   Mars.position.z = Math.sin(marsRadians) * marsOrbitRadius * 1.25;
   Mars.rotation.y -= .02;
 
-  camera.lookAt(theEarth.position); 
+ camera.lookAt(theEarthAndMoon.position); 
 
+   //camera.lookAt(theSun.position); 
 
   Venus.position.x = Math.cos(venusRadians) * venusOrbitRadius;
   Venus.position.z = Math.sin(venusRadians) * venusOrbitRadius;
@@ -178,11 +179,11 @@ function render() {
   Mercury.rotation.y -= .009;
   Mercury.rotation.z -= .0006;
 
-  // theEarthAndMoon.rotation.y -= .01;
-  // theEarthAndMoon.rotation.z -= .00005;
+  theEarthAndMoon.rotation.y -= .01;
+  theEarthAndMoon.rotation.z -= .00005;
 
-  theEarth.rotation.y -= .01;
-  theEarth.rotation.z -= .00005;
+  // theEarth.rotation.y -= .01;
+  // theEarth.rotation.z -= .00005;
 
   Ganymede.position.y = Math.cos(ganymedeRadians) * ganymedeOrbitRadius;
   Ganymede.position.z = Math.sin(ganymedeRadians) * ganymedeOrbitRadius;

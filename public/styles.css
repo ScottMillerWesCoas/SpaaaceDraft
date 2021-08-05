@@ -1,12 +1,20 @@
 /* body, background, and major wrappers */
 body.starfield {
   color: #E2F4DF;
-  background-image:url('/assets/starfield2.jpg');
+  background-image:url('/assets/twoArcsKralik.jpeg');
   line-height: 1.2;
   margin: 0px;
   overflow: hidden;
   font-family:  'Roboto Condensed', sans-serif;
   /*text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;*/
+}
+
+body.starfield2 {
+  background-image:url('/assets/starfield2.jpg');
+}
+
+.particles-js-canvas-el{
+  height: 50% !important;
 }
 
 

@@ -71,6 +71,10 @@ app.get('/galaxy', authCheck, function(req, res) {
   res.sendFile(path.join(__dirname, './views/galaxy.html'));
 });
 
+app.get('/planet', function(req, res) {
+  res.sendFile(path.join(__dirname, './views/planet.html'));
+});
+
 app.get('/spacePic', authCheck, function(req, res) {
   res.sendFile(path.join(__dirname, './views/spacePic.html'));
 });

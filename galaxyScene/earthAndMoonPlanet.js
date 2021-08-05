@@ -7,7 +7,7 @@ earthOrbitSpeed = 0.1,
 
 moonOrbitRadius = 24,
 moonOrbitAngle = 20; 
-moonOrbitSpeed = 0.7;
+moonOrbitSpeed = 0.2;
 
 
 var textureLoader = new THREE.TextureLoader();
@@ -16,7 +16,7 @@ theEarthAndMoon = new THREE.Object3D();
 theEarthAndMoon.receiveShadow = true; 
 
 
-var earthGeometry = new THREE.SphereGeometry(15, 28.8, 32);
+var earthGeometry = new THREE.SphereGeometry(15, 32, 32);
 var earthMap  = textureLoader.load('assets/planetPics/earthmap1k.jpg');
 var earthBump = textureLoader.load('assets/planetPics/earthbump1k.jpg');
 var earthSpec = textureLoader.load('assets/planetPics/earthspec1k.jpg');
@@ -24,15 +24,18 @@ var earthTexture =  new THREE.MeshPhongMaterial( { map: earthMap, bumpMap: earth
 var theEarth = new THREE.Mesh(earthGeometry, earthTexture );
 theEarth.receiveShadow = true; 
 
-var cloudGeometry   = new THREE.SphereGeometry(15.5, 28.8, 14.4);
+
+var cloudGeometry   = new THREE.SphereGeometry(15.5, 32, 32);
 var canvasCloud = textureLoader.load('assets/planetPics/earth_clouds.png');
 var cloudMaterial  = new THREE.MeshPhongMaterial( {map: canvasCloud, transparent: true, depthWrite: false, opacity: .7} );
 var cloudMesh = new THREE.Mesh(cloudGeometry, cloudMaterial);
 
 
-theMoon = new THREE.Mesh(new THREE.SphereGeometry(5, 16, 32),  new THREE.MeshPhongMaterial({
+theMoon = new THREE.Mesh(new THREE.SphereGeometry(4, 32, 32),  new THREE.MeshPhongMaterial({
     map: textureLoader.load('assets/planetPics/moonmap1k.jpg'), 
     bumpMap: textureLoader.load('assets/planetPics/moonbump1k.jpg')
 }));
 
 theMoon.receiveShadow = true; 
+
+
