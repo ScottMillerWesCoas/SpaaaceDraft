@@ -32,7 +32,8 @@ $(document).ready(function(){
 			success: function(data){
 				console.log("success back from server"); 
 				console.log(data); 
-
+				//deal with this later
+				sessionStorage.setItem('spaceProjToken', data.token);
 				window.location.href = "/galaxy?t=" + data.token; 
 			}
 		})

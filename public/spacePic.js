@@ -1,6 +1,8 @@
 $(document).ready(function(){
+	//leaving as example, but can use /APOD and .env to hide NASA key
 	const key = "IayJ7QvF22fHrYr2wn7jElhJPsBzy4AriuZwVQEw"; 
 	const APODImageURL = "https://api.nasa.gov/planetary/apod?count=20&api_key=" + key; 
+	
 	const oldImageURL = "https://images-api.nasa.gov/search?description=1969&media_type=image";
 	const marsImageURL = "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=" + key;  
 	let APODPicsData = [], APODPic = 0; oldPicsData = {}, marsPicsData = {}; marsPics = {start: 0, end: 10}, oldPics = {start: 0, end: 10}; 
@@ -15,10 +17,10 @@ $(document).ready(function(){
 			}, 
 			success: function(data){
 				console.log(data);
-				if (url.indexOf('apod?') > 0) {
+				if (url.indexOf('APOD') > 0) {
 					APODPicsData = data;
 					let el = APODPicsData[0];
-					appendPic(el.hdurl, el.title, el.date);
+					appendPic(el.hdurl, el.title, el.date, el.explanation);
 					APODPic++;   
 				} else if (url.indexOf('description') > 0){
 					oldPicsData = data; 
@@ -33,7 +35,8 @@ $(document).ready(function(){
 		})
 	}
 
-	getDataFromAPI(APODImageURL, {start: 0, end: 10}); 
+	//note - leaving 
+	getDataFromAPI('/APOD', {start: 0, end: 10}); 
 
 	const addPics = (picObj, dataObj) => {
 
@@ -56,7 +59,8 @@ $(document).ready(function(){
 		dataObj.end += 10; 
 	}
 
-	const appendPic = (imgSrc, title, date) => {
+	const appendPic = (imgSrc, title, date, exp) => {
+		if (!exp) exp = "No description listed"; 
 		$('.picRow').prepend(
 			`
 				<div class="col-sm-12 col-lg-6">` +
@@ -72,15 +76,13 @@ $(document).ready(function(){
 					` Picture</div><div class="col-sm-3 pr-0"><i class="material-icons right activator">more_vert</i></span></div></div>` +
 					`<div class="row mb-0"><div class="col-sm-12 px-0 pt-3"><p><a href="` +
 					
-					`" target="_blank">Photo Taken On Earth Date `+date+`</a><span class="faved material-icons md-24 float-right" id="` +
-					
-					`">favorite</span></p></div></div></div>` +
+					`" target="_blank">Photo Taken On Earth Date `+date+`</a></p></div></div></div>` +
 					`<div class="card-reveal">
 				        <span class="card-title grey-text text-darken-4"
-				            >` +
+				            >` + title + 
 					
 					`<i class="material-icons right">close</i></span>
-				        <p>` +
+				        <p>` + exp + 
 					
 					`</p></div></div></div>`
 			)
@@ -97,7 +99,7 @@ $(document).ready(function(){
 	})
 	$('#APODPics').on('click', function(){
 		let el = APODPicsData[APODPic]; 
-		appendPic(el.hdurl, el.title, el.date);
+		appendPic(el.hdurl, el.title, el.date, el.explanation);
 		APODPic++; 
 	})
 })

@@ -18,6 +18,10 @@
     <script type="text/javascript" src="./galaxyScene/venus.js"></script>
     <script type="text/javascript" src="./galaxyScene/neptune.js"></script>
 
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+
 
       <!-- BOOTSTRAP FOR RESPONSIVE DIVS -->
   <!-- Latest compiled and minified CSS -->
@@ -30,16 +34,38 @@
  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <!-- End of Bootstrap -->
 
+
+ <!-- Compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+
+<!-- Link to javascript library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
   </head>
 
-   <body class="starfield2">
-
-
-     <div id="containerG">
+  <body class="starfield2">
+    <nav>
+      <div class="nav-wrapper">
+        <ul class="right">
+          <li id="spacePic">
+            <a href="#"><i class="material-icons">collections</i></a>
+          </li>
+          <li id="earth">
+            <a href="#"><i class="material-icons">public</i></a>
+          </li>
+          <li id="galaxy">
+            <a href="#"><i class="material-icons">home</i></a>
+          </li>
+        </ul>
       </div>
+    </nav>
+
+
+    <div id="containerG"></div>
 
 
     <script type="text/javascript" src="./galaxyScene/galaxyScene.js"></script>
+    <script type="text/javascript" src="./public/nav.js"></script>
   </body>
 
 </html>

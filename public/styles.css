@@ -13,6 +13,18 @@ body.starfield2 {
   background-image:url('/assets/starfield2.jpg');
 }
 
+.starfield2 nav, .starfield2 .nav-wrapper{
+  opacity: .2; 
+  background: #222;
+  transition: .26s;
+}
+
+.starfield2 nav:hover, .starfield2 .nav-wrapper:hover {
+  opacity: 1; 
+  background: #222;
+  color: #fff;
+}
+
 .particles-js-canvas-el{
   height: 50% !important;
 }
@@ -28,7 +40,7 @@ body.starfield2 {
 
 #containerG {
   position: absolute;
-  top: 5%;
+  top: 0px;
   left: 0px;
   z-index: -1;
 }
